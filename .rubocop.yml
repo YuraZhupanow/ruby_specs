@@ -1,0 +1,9 @@
+Layout/TrailingWhitespace:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+  

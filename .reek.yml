@@ -1,0 +1,14 @@
+detectors:
+  UtilityFunction:
+    exclude:
+      - 'options'
+      - 'save_user_creds'
+      - 'read_user_creds'
+
+  IrresponsibleModule:
+    exclude:
+      - 'Home'
+      - 'LoginPage'
+      - 'RegistrationPage'
+      - 'MenuSection'
+  
