@@ -13,6 +13,6 @@ gem 'selenium-webdriver'
 gem 'site_prism'
 gem 'yaml'
 
-group :local do
+group :debuging do
   gem 'pry'
 end
