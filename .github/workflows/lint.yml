@@ -25,6 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
+        with:
+          ruby-version: '3.0'
+
       # Runs a single command using the runners shell
       - name: Install Dependencies
         run: bundle install
@@ -35,4 +40,4 @@ jobs:
         
       # Runs a single command using the runners shell
       - name: Run Reek
-        run: bundle exec reek .
+        run: bundle exec reek
