@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install Dependencies
-        run: bundle install --without local
+        run: bundle install
         
       # Runs a single command using the runners shell
       - name: Run RuboCop
