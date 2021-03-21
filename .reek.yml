@@ -23,5 +23,3 @@ detectors:
   DuplicateMethodCall:
     exclude:
       - 'UserHelper#register_user'
-
-  
