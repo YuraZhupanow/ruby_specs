@@ -5,7 +5,6 @@ require 'require_all'
 require 'pry'
 require 'selenium-webdriver'
 require 'site_prism'
-require 'ffaker'
 
 require_all 'page_objects/sections'
 require_all 'page_objects/pages'
