@@ -5,5 +5,11 @@ Style/MixinUsage:
   Enabled: false
 
 Metrics/BlockLength:
+  Enabled: 50
+
+Metrics/AbcSize:
+  Max: 30
+
+Style/Documentation:
   Enabled: false
   

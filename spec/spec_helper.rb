@@ -5,13 +5,14 @@ require 'require_all'
 require 'pry'
 require 'selenium-webdriver'
 require 'site_prism'
-require 'yaml'
+require 'ffaker'
 
-require_all 'spec_helpers'
 require_all 'page_objects/sections'
 require_all 'page_objects/pages'
+require_all 'models'
+require_all 'spec/support'
 
-include FileHelper
+include UserHelper
 
 RSpec.configure do
   def options

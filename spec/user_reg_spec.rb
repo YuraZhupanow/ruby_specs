@@ -3,45 +3,32 @@
 feature 'Create a new user', js: true do
   before(:all) { @home_page = Home.new }
 
-  after(:all) { File.delete(FileHelper::CREDS_PATH) }
-  random = Time.now.to_i.to_s
-  password = 'test123456'
+  after(:all) { File.delete(UserHelper::CREDS_PATH) }
   
   scenario 'Register user' do
     @home_page.load
+    expect(@home_page).to have_content('Home')
 
     @home_page.menu.register.click
-
-    @registration_page = RegistrationPage.new
-
-    expect(@registration_page.current_url).to include('redmine/account/register')
-  
-    @registration_page.user_login.set "user#{random}"
-    @registration_page.user_password.set password.to_s
-    @registration_page.user_password_confirmation.set password.to_s
-    @registration_page.user_firstname.set 'Test'
-    @registration_page.user_lastname.set 'User'
-    @registration_page.user_mail.set "test#{random}@test.com"
-
-    @registration_page.submit_button.click
-    expect(@home_page.menu.loggedas.text).to include("Logged in as user#{random}")
     
-    save_user_creds(random, password)
+    register_user
+    
+    expect(@home_page.menu.logged_as.text).to include("Logged in as #{@user.login}")
   end
   
-  scenario 'Login users' do
+  scenario 'Login user and check my page' do
+    @my_page = MyPage.new
     @home_page.load
     @home_page.menu.login.click
 
-    @login_page = LoginPage.new
+    credentials = read_user
 
-    expect(@login_page.current_url).to include('redmine/login')
-
-    credentials = read_user_creds
-  
-    @login_page.user_login.set credentials[:username]
-    @login_page.user_password.set credentials[:password]
-    @login_page.login_button.click
-    expect(@home_page.menu.loggedas.text).to include("Logged in as user#{random}")
+    login_user credentials
+    expect(@home_page.menu.logged_as.text).to include("Logged in as #{credentials.login}")
+    # verify that no issues are assigned on my-page
+    @home_page.menu.my_page.click
+    expect(page.current_url).to include('redmine/my/page')
+    expect(@my_page.assigned_issues).to have_content('No data to display')
+    expect(@my_page.reported_issues).to have_content('No data to display')
   end
 end
