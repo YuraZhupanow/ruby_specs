@@ -2,8 +2,8 @@ detectors:
   UtilityFunction:
     exclude:
       - 'options'
-      - 'save_user_creds'
-      - 'read_user_creds'
+      - 'save_user'
+      - 'read_user'
 
   IrresponsibleModule:
     exclude:
@@ -11,4 +11,15 @@ detectors:
       - 'LoginPage'
       - 'RegistrationPage'
       - 'MenuSection'
-  
+      - 'MyPage'
+      - 'User'
+
+  TooManyInstanceVariables:
+    max_instance_variables: 10
+
+  TooManyStatements:
+    max_statements: 15
+
+  DuplicateMethodCall:
+    exclude:
+      - 'UserHelper#register_user'
