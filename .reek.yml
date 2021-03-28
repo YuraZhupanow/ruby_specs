@@ -4,6 +4,7 @@ detectors:
       - 'options'
       - 'save_user'
       - 'read_user'
+      - 'get_user'
 
   IrresponsibleModule:
     exclude:
