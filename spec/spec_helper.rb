@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'dotenv/load'
 require 'capybara/rspec'
 require 'require_all'
 require 'pry'

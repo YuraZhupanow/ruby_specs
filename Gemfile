@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 ruby '3.0.0'
 
 gem 'capybara'
+gem 'dotenv'
 gem 'ffaker'
 gem 'reek'
 gem 'require_all'

@@ -9,4 +9,3 @@ feature 'Log in using user created by API call' do
 
   login_user @user
 end
-  

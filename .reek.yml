@@ -5,6 +5,7 @@ detectors:
       - 'save_user'
       - 'read_user'
       - 'get_user'
+      - 'api_header'
 
   IrresponsibleModule:
     exclude:
