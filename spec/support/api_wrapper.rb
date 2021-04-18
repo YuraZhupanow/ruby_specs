@@ -7,7 +7,7 @@ module ApiWrapper
   def create_user
     @user = User.new
 
-    response = RestClient.post "#{ENV['ROOT_URL']}users.json",
+    response = RestClient.post "#{ENV['ROOT_URL']}/users.json",
                                {
                                  "user": {
                                    "login": @user.login,
@@ -17,24 +17,31 @@ module ApiWrapper
                                    "password": @user.password
                                  }
                                }.to_json,
-                               api_header
+                               admin_json_api_header
 
     raise 'User was not created' unless response.code == 201
 
-    JSON.parse(response.body)
+    # save_user @user
+    save_user(@user)
+    @generated_user = JSON.parse(response.body)
   end
 
-  def get_user(id)
-    response = RestClient.get "#{ENV['ROOT_URL']}/users/#{id}.json",
-                              api_header
+  def create_project
+    @project = Project.new
 
-    raise 'Can not fetch the user' unless response.code == 201
+    response = RestClient.post "#{ENV['ROOT_URL']}/projects.json",
+                               {
+                                 "project": {
+                                   "name": @project.name,
+                                   "identifier": @project.identifier
+                                 }
+                               }.to_json,
+                               admin_json_api_header
 
-    received_user = JSON.parse(response.body)
-    received_user['user']
+    puts JSON.parse(response.body)
   end
 
-  def api_header
+  def admin_json_api_header
     { content_type: :json, 'x-redmine-api-key': ENV['ADMIN_API_KEY'] }
   end
 end
