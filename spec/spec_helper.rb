@@ -20,6 +20,10 @@ if ENV['HEADLESS'] == 'true'
 
   headless = Headless.new
   headless.start
+  
+  at_exit do
+    headless.destroy
+  end
 end
 
 RSpec.configure do
