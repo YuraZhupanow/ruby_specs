@@ -11,6 +11,7 @@ gem 'reek'
 gem 'require_all'
 gem 'rest-client'
 gem 'rspec'
+gem "rspec_junit_formatter"
 gem 'rubocop'
 gem 'selenium-webdriver'
 gem 'site_prism'
