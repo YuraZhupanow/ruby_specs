@@ -2,7 +2,7 @@ require 'rspec/core/rake_task'
 require 'ci/reporter/rake/rspec'
   
 RSpec::Core::RakeTask.new(:spec) do |t|
-  t.rspec_opts = ['--format xml', '--out spec/reports/results.xml']
+  t.rspec_opts = ['--format xml', '--out reports/results.xml']
  # t.pattern = 'spec/heartbeat/heartbeat_spec.rb'
 end
 
