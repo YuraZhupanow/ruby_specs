@@ -19,6 +19,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
     ffaker (2.18.0)
+    headless (2.3.1)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -108,6 +109,7 @@ DEPENDENCIES
   capybara
   dotenv
   ffaker
+  headless
   pry
   reek
   require_all

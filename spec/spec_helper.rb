@@ -15,9 +15,20 @@ require_all 'spec/support'
 include UserHelper
 include ApiWrapper
 
+if ENV['HEADLESS'] == 'true'
+  require 'headless'
+
+  headless = Headless.new
+  headless.start
+
+  at_exit do
+    headless.destroy
+  end
+end
+
 RSpec.configure do
   def options
-    Selenium::WebDriver::Chrome::Options.new(args: %w[window-size=1800,1000 --headless])
+    Selenium::WebDriver::Chrome::Options.new(args: %w[window-size=1800,1000])
   end
 
   Capybara.default_driver = :selenium
