@@ -3,7 +3,7 @@
 feature 'Create a new user', js: true do
   before(:all) { @home_page = Home.new }
 
-  #after(:all) { File.delete(UserHelper::CREDS_PATH) }
+  after(:all) { File.delete(UserHelper::CREDS_PATH) }
 
   scenario 'Register user' do
     @home_page.load
