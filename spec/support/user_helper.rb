@@ -33,7 +33,7 @@ module UserHelper
 
   def login_user(credentials)
     @login_page = LoginPage.new
-  
+
     @login_page.user_login.set credentials.login
     @login_page.user_password.set credentials.password
     @login_page.login_button.click

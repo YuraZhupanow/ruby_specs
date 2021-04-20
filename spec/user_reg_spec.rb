@@ -4,18 +4,18 @@ feature 'Create a new user', js: true do
   before(:all) { @home_page = Home.new }
 
   after(:all) { File.delete(UserHelper::CREDS_PATH) }
-  
+
   scenario 'Register user' do
     @home_page.load
     expect(@home_page).to have_content('Home')
 
     @home_page.menu.register.click
-    
+
     register_user
-    
+
     expect(@home_page.menu.logged_as.text).to include("Logged in as #{@user.login}")
   end
-  
+
   scenario 'Login user and check my page' do
     @my_page = MyPage.new
     @home_page.load
