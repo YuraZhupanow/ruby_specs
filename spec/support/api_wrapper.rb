@@ -37,8 +37,7 @@ module ApiWrapper
                                  }
                                }.to_json,
                                admin_json_api_header
-
-    puts JSON.parse(response.body)
+    raise 'Project was not created' unless response.code == 201
   end
 
   def admin_json_api_header
