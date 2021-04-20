@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 feature 'API actions on user' do
-  after(:all) { File.delete(UserHelper::CREDS_PATH) }
+  #after(:all) { File.delete(UserHelper::CREDS_PATH) }
 
   scenario 'Log in using user created by API call' do
     # api call to create a user
