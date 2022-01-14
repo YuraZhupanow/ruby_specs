@@ -31,5 +31,6 @@ feature 'Create a new user', js: true do
     expect(@my_page.assigned_issues).to have_content('No data to display')
     expect(@my_page.reported_issues).to have_content('No data to display')
     @test
+    test
   end
 end
