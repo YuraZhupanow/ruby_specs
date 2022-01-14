@@ -32,7 +32,7 @@ rubocop_excluded_cops:
 # Valid options: 'refactor', 'convention', 'warning', 'error', or 'fatal'.
 # Default: 'warning'
 # Resource: https://rubocop.readthedocs.io/en/stable/configuration/#severity
-rubocop_fail_level: "warning"
+rubocop_fail_level: "convention"
 
 # Whether or not to use --force-exclusion when building the rubocop command. Use this if you are only linting modified
 # files and typically excluded files have been changed. For example, if you exclude db/schema.rb in your rubocop.yml

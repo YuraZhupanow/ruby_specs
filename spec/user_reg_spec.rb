@@ -30,5 +30,6 @@ feature 'Create a new user', js: true do
     expect(page.current_url).to include('redmine/my/page')
     expect(@my_page.assigned_issues).to have_content('No data to display')
     expect(@my_page.reported_issues).to have_content('No data to display')
+    @test
   end
 end
