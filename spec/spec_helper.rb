@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'dotenv/load'
 require 'capybara/rspec'
 require 'require_all'
 require 'pry'
@@ -12,6 +13,18 @@ require_all 'models'
 require_all 'spec/support'
 
 include UserHelper
+include ApiWrapper
+
+if ENV['HEADLESS'] == 'true'
+  require 'headless'
+
+  headless = Headless.new
+  headless.start
+
+  at_exit do
+    headless.destroy
+  end
+end
 
 RSpec.configure do
   def options

@@ -4,6 +4,8 @@ detectors:
       - 'options'
       - 'save_user'
       - 'read_user'
+      - 'get_user'
+      - 'api_header'
 
   IrresponsibleModule:
     exclude:
@@ -13,6 +15,8 @@ detectors:
       - 'MenuSection'
       - 'MyPage'
       - 'User'
+      - ProjectsPage
+      - Project
 
   TooManyInstanceVariables:
     max_instance_variables: 10
