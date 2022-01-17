@@ -30,9 +30,9 @@ jobs:
         with:
           ruby-version: '3.0'
 
-      # Runs a single command using the runners shell
-      - name: Install Dependencies
-        run: bundle install --without debuging
+#      # Runs a single command using the runners shell
+#      - name: Install Dependencies
+#        run: bundle install --without debuging
 
       - name: Rubocop checks
         uses: gimenete/rubocop-action@1.0
